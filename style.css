@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.imgCanvas{
+    width: 70%;
+    height: 70%;
+    border-radius: 15px;
+    margin: 4%;
+}
+
+.paso7{
+    background-color: wheat;
+    background-image: url('img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.uno{
+    background-color: wheat;
+    background-image: url('img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    border-radius: 15px;
+}
+
+
+.bloquePaso7{
+    margin-left: 10%;
+    width: 80%;
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    box-shadow: 4px 0px 7px rgb(94, 27, 27);
+}
+
+h1{
+    padding-top: 5%;
+    text-shadow: 4px 0px 7px #d09306;
+}
+
+.imgPaso7{
+    width: 37%;
+    border-radius: 15px;
+    box-shadow: 4px 0px 7px rgb(94, 27, 27);
+}
+
+.divimg{
+    width: 94%;
+    background-color: #d09306;
+    padding: 3%;
+    box-shadow: 4px 0px 7px rgb(94, 27, 27);
+}
+
+h2{
+    text-shadow: 4px 0px 10px #d09306;
+}
+
+.bloque2Paso7{
+    margin: 30px;
+    padding-bottom: 10px;
+}
+
+.bi{
+    font-size: 400%;
+    float: right;
+    color: black;
+}
+
+footer{
+    background-color: darkgray;
+    width: 100%;
+    height: 50px;
+    padding: 1px;
+}
+
+
+
+img{
+    text-align: center;
+    box-shadow: blue;
+    width: 70%;
+    height: 70%;
+    border-color: aqua;
+}
+
+  
