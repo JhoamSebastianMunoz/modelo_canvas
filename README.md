@@ -31,7 +31,7 @@ modelo_canvas/
 ├── paso_8.html   # Red de partners
 ├── paso_9.html   # Estructura de costos
 ├── style.css     # Hoja de estilos
-├── img/          # Imágenes del mapa, fondos e ilustraciones
+├── img/          # Lienzo del modelo e ilustraciones de cada bloque
 └── iconos/       # Iconos (Bootstrap Icons)
 ```
 
@@ -45,12 +45,14 @@ Start-Process "index.html"
 
 ## Estilos
 
-Los estilos se definen en `style.css` e incluyen:
+Todo el sistema vive en `style.css`, organizado por secciones (variables, base, portada, ficha, pie, móvil). No usa fuentes ni librerías externas.
 
-- Fondo `wheat` con imagen fija (`img/fondo.jpg`) y tipografía `Arial, Helvetica, sans-serif`.
-- Imagen del mapa al 70% del ancho con bordes redondeados (`.imgCanvas`).
-- Bloques de contenido con sombra y bordes redondeados (`.bloquePaso7`, `.divimg`).
-- Sombras de texto doradas en los títulos (`h1`, `h2`).
+- **Paleta:** fondo cálido plano `#fbf4e6`, texto `#2b2620`, acento dorado `#b5810e` y acento vino `#6b2a2a`.
+- **Tipografía:** pila del sistema (`system-ui, "Segoe UI", …`), escala modular y medida de lectura de 68 caracteres.
+- **Bloques:** cada uno de los nueve bloques tiene su color tomado del propio gráfico (variables `--b1` … `--b9`), usado como guía en el índice y en la ficha de cada página.
+- **Portada:** el lienzo (`img/modelo-canvas.png`) con su mapa de imagen accesible por áreas rectangulares y un índice de los nueve bloques.
+- **Ficha:** cada `paso_N.html` comparte un mismo shell con barra de regreso, figura, texto y navegación anterior/siguiente.
+- Respeta `prefers-reduced-motion` y mantiene el foco visible para navegación por teclado.
 
 ## Autor
 

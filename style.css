@@ -1,88 +1,325 @@
-body{
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.imgCanvas{
-    width: 70%;
-    height: auto;
-    border-radius: 15px;
-    margin: 4%;
-}
+/* =========================================================
+   Modelo Canvas · hoja de estilos
+   1. Variables
+   2. Base y reset
+   3. Utilidades de disposición
+   4. Portada (index)
+   5. Ficha de bloque (pasos)
+   6. Pie de página
+   7. Adaptación móvil y accesibilidad
+   ========================================================= */
 
-.paso7{
-    background-color: wheat;
-    background-image: url('img/fondo.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
-.uno{
-    background-color: wheat;
-    background-image: url('img/fondo.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    border-radius: 15px;
-}
+/* 1. Variables -------------------------------------------- */
+:root {
+  --font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
+  --paper: #fbf4e6;
+  --surface: #ffffff;
+  --ink: #2b2620;
+  --ink-soft: #6f6558;
+  --line: #e7dec9;
+  --accent: #b5810e;
+  --accent-deep: #6b2a2a;
 
-.bloquePaso7{
-    margin-left: 10%;
-    width: 80%;
-    background-color: #f5f5f5;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 15px;
-    box-shadow: 4px 0px 7px rgb(94, 27, 27);
-}
+  /* Colores de los nueve bloques, tomados del lienzo */
+  --b1: #c0a1ff;
+  --b2: #008037;
+  --b3: #03989e;
+  --b4: #6372fd;
+  --b5: #8c52ff;
+  --b6: #ef7e6b;
+  --b7: #20db86;
+  --b8: #7ed957;
+  --b9: #369d6e;
 
-h1{
-    padding-top: 5%;
-    text-shadow: 4px 0px 7px #d09306;
+  --radius: 12px;
+  --wrap: 1080px;
+  --measure: 68ch;
+  --shadow: 0 1px 2px rgba(43, 38, 32, 0.06), 0 8px 24px rgba(43, 38, 32, 0.06);
 }
 
-.imgPaso7{
-    width: 37%;
-    border-radius: 15px;
-    box-shadow: 4px 0px 7px rgb(94, 27, 27);
+/* 2. Base y reset ----------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.divimg{
-    width: 94%;
-    background-color: #d09306;
-    padding: 3%;
-    box-shadow: 4px 0px 7px rgb(94, 27, 27);
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
-h2{
-    text-shadow: 4px 0px 10px #d09306;
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
 }
 
-.bloque2Paso7{
-    margin: 30px;
-    padding-bottom: 10px;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.bi{
-    font-size: 400%;
-    float: right;
-    color: black;
+a {
+  color: var(--accent-deep);
+  text-underline-offset: 2px;
 }
 
-footer{
-    background-color: darkgray;
-    width: 100%;
-    height: 50px;
-    padding: 1px;
+a:hover {
+  color: #4d1d1d;
 }
 
-
-
-img{
-    text-align: center;
-    box-shadow: blue;
-    width: 70%;
-    height: 70%;
-    border-color: aqua;
+h1,
+h2 {
+  margin: 0 0 0.5em;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
-  
+p {
+  margin: 0 0 1em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 3. Utilidades de disposición ---------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 4. Portada (index) -------------------------------------- */
+.portada {
+  padding: 48px 0 24px;
+  text-align: center;
+}
+
+.portada-titulo {
+  margin-bottom: 0.25em;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  letter-spacing: -0.02em;
+}
+
+.portada-intro {
+  max-width: 58ch;
+  margin: 0 auto 32px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.lienzo {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+}
+
+.lienzo img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.lienzo figcaption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.indice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+.indice-item {
+  --c: var(--accent);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--c);
+  border-radius: 10px;
+  background-color: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.indice-item:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.indice-num {
+  min-width: 1.2em;
+  color: var(--ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 5. Ficha de bloque (pasos) ------------------------------ */
+.ficha {
+  --c: var(--accent);
+  max-width: 820px;
+  margin: 32px auto 0;
+  padding: 28px clamp(20px, 4vw, 44px) 36px;
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--c);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.ficha-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.volver {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ficha-num {
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.ficha-titulo {
+  margin: 0.1em 0 0.6em;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  letter-spacing: -0.01em;
+}
+
+.ficha-figura {
+  margin: 0 0 28px;
+}
+
+.ficha-figura img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.ficha-texto {
+  max-width: var(--measure);
+}
+
+.ficha-texto h2 {
+  margin: 1.4em 0 0.35em;
+  color: var(--accent-deep);
+  font-size: 1.15rem;
+}
+
+.ficha-texto h2:first-child {
+  margin-top: 0;
+}
+
+.lista-pasos {
+  max-width: var(--measure);
+  margin: 0 0 1em;
+  padding-left: 1.3em;
+}
+
+.lista-pasos li {
+  margin-bottom: 0.5em;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.pager a {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background-color: #fcf7ec;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pager a:hover {
+  border-color: var(--c);
+}
+
+.pager a span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.pager-next {
+  text-align: right;
+}
+
+/* 6. Pie de página ---------------------------------------- */
+.site-footer {
+  margin-top: 48px;
+  padding: 20px;
+  border-top: 1px solid var(--line);
+  background-color: #f6eedb;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* 7. Adaptación móvil y accesibilidad --------------------- */
+@media (max-width: 560px) {
+  .portada {
+    padding-top: 32px;
+  }
+
+  .ficha {
+    margin-top: 20px;
+  }
+
+  .pager {
+    grid-template-columns: 1fr;
+  }
+
+  .pager-next {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
